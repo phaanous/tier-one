@@ -3,9 +3,9 @@ pipeline {
 
     stages {
 
-        when { branch 'master' }
+        stage('Build Tier One') {
 
-        stage('Build Tier One') {                        
+            when { branch 'master' }
 
             steps {
                 echo 'Building..'
@@ -19,6 +19,8 @@ pipeline {
 
         stage('Test') {
 
+            when { branch 'master' }
+
             steps {
                 echo 'Testing..'
             }
@@ -27,6 +29,8 @@ pipeline {
 
         stage('Deploy') {
 
+            when { branch 'master' }
+
             steps {
                 echo 'Deploying....'
             }
@@ -34,4 +38,5 @@ pipeline {
         }
 
     }
+
 }
